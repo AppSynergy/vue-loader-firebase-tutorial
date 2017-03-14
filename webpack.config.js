@@ -27,7 +27,7 @@ module.exports = {
       {
         test: /\.coffee$/,
         use: [ 'coffee-loader' ]
-      }
+      },
       {
         test: /\.js$/,
         loader: 'babel-loader',
