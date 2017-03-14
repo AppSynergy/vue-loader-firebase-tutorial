@@ -1,16 +1,18 @@
 <template>
   <div id="app">
     <div class="container">
-      <h1>Hello, world! ☺ - {{ foo }}</h1>
+      <h1>Hello, world! ☺ - {{ db.ref() }}</h1>
     </div>
   </div>
 </template>
 
 <script lang="coffee">
+  import FirebaseAPI from './Firebase.coffee'
+
   Component =
     name: 'app'
     data: () ->
-      foo: "your content here"
+      db: FirebaseAPI.database
 
   export default Component
 </script>
