@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div class="container">
-      <h1>Hello, world! ☺ - {{ db.ref() }}</h1>
+      <button v-on:click="googleSignin()" class="btn btn-primary">Signin</button>
+      <h1>Hello, world! ☺ - {{ vegetable }}</h1>
     </div>
   </div>
 </template>
@@ -13,6 +14,13 @@
     name: 'app'
     data: () ->
       db: FirebaseAPI.database
+      vegetable: null
+    mounted: () ->
+      @db.ref('vegetable').on 'value', (value) =>
+        @vegetable = value
+    methods:
+      googleSignin: () ->
+        FirebaseAPI.googleSignin()
 
   export default Component
 </script>

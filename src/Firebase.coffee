@@ -9,7 +9,10 @@ config =
 
 firebaseApp = Firebase.initializeApp config
 
+provider = new Firebase.auth.GoogleAuthProvider()
+
 FirebaseAPI =
   database: firebaseApp.database()
+  googleSignin: () -> Firebase.auth().signInWithPopup(provider)
 
 export default FirebaseAPI
